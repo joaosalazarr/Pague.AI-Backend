@@ -5,14 +5,14 @@ from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
 from app.db.base import Base
 
-class Debts(Base):
-    __tablename__ = 'debts'
+class Charges(Base):
+    __tablename__ = 'charges'
 
-    debt_id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    debtor_id = Column(UUID(as_uuid=True), ForeignKey('debtors.id'), nullable=False)
-    companies_id = Column(UUID(as_uuid=True), ForeignKey('companies.id'), nullable=False)
-    debt_value = Column(Float, nullable=False)
-    debt_status = Column(Boolean, nullable=False, default=False)
+    charge_id = Column(UUID, primary_key=True, default=uuid.uuid4)
+    debt_id = Column(UUID(as_uuid=True), ForeignKey('debts.debt_id'), nullable=False)
+    charge_date = Column(DateTime, nullable=False)
+    send_status = Column(Boolean, null=False)
+    message_midst = Column(String, nullable=False)
     created_at = Column(DateTime, default=func.now())
     updated_at = Column(DateTime, default=func.now(), onupdate=func.now())
     deleted_at = Column(DateTime, nullable=True)
