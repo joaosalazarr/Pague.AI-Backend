@@ -12,3 +12,6 @@ class Debts(BaseTableMixin, Base):
     companies_id = Column(UUID(as_uuid=True), ForeignKey('companies.id'), nullable=False)
     debt_value = Column(Float, nullable=False)
     debt_status = Column(Boolean, nullable=False, default=False)
+
+    debtor = relationship('Debtors', back_populates='debts')
+    company = relationship('Companies', back_populates='debts')

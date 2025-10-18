@@ -10,3 +10,5 @@ class Transactions(BaseTableMixin, Base):
     debt_id = Column(UUID(as_uuid=True), ForeignKey('debts.id'))
     paid_amount = Column(Float, nullable=False)
     payment_date = Column(Date, nullable=False)
+
+    debt = relationship('Debts', back_populates='transactions')

@@ -12,3 +12,5 @@ class Charges(BaseTableMixin, Base):
     charge_date = Column(DateTime, nullable=False)
     send_status = Column(Boolean, null=False)
     message_midst = Column(String, nullable=False)
+
+    debt = relationship('Debts', back_populates='charges')

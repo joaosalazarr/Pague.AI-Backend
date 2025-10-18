@@ -14,4 +14,4 @@ class Users(BaseTableMixin, Base):
     password_hash = Column(String, nullable=False)
     role = Column(String(255))
 
-    company = relationship('Company', back_populates='users')
+    company = relationship('Companies', back_populates='users')
