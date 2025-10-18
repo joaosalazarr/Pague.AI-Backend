@@ -18,4 +18,4 @@ class Users(Base):
     updated_at = Column(DateTime, default=func.now(), onupdate=func.now())
     deleted_at = Column(DateTime, nullable=True)
 
-    user = relationship('Company', back_populates='users')
+    company = relationship('Company', back_populates='users')
