@@ -1,18 +1,14 @@
-import uuid
 from sqlalchemy import (Column, String, Integer, Float, Double, Boolean, Date, DateTime, Text, Numeric, ForeignKey)
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
-from sqlalchemy.sql import func
 from app.db.base import Base
+from app.db.base_table import BaseTableMixin
 
-class Debts(Base):
+
+class Debts(BaseTableMixin, Base):
     __tablename__ = 'debts'
 
-    debt_id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     debtor_id = Column(UUID(as_uuid=True), ForeignKey('debtors.id'), nullable=False)
     companies_id = Column(UUID(as_uuid=True), ForeignKey('companies.id'), nullable=False)
     debt_value = Column(Float, nullable=False)
     debt_status = Column(Boolean, nullable=False, default=False)
-    created_at = Column(DateTime, default=func.now())
-    updated_at = Column(DateTime, default=func.now(), onupdate=func.now())
-    deleted_at = Column(DateTime, nullable=True)
