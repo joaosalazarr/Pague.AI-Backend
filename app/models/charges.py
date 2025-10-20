@@ -10,7 +10,7 @@ class Charges(BaseTableMixin, Base):
 
     debt_id = Column(UUID(as_uuid=True), ForeignKey('debts.id'), nullable=False)
     charge_date = Column(DateTime, nullable=False)
-    send_status = Column(Boolean, null=False)
+    send_status = Column(Boolean, nullable=False)
     message_midst = Column(String, nullable=False)
 
     debt = relationship('Debts', back_populates='charges')

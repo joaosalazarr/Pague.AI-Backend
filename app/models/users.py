@@ -8,7 +8,7 @@ from app.db.base_table import BaseTableMixin
 class Users(BaseTableMixin, Base):
     __tablename__ = 'users'
 
-    company_id = Column(UUID(as_uuid=True), ForeignKey('company.id'), nullable=False)
+    company_id = Column(UUID(as_uuid=True), ForeignKey('companies.id'), nullable=False)
     user_name = Column(String(255))
     email = Column(String(255), nullable=False)
     password_hash = Column(String, nullable=False)
