@@ -1,6 +1,6 @@
-from sqlalchemy.orm import declarative_base
+from sqlalchemy.orm import declarative_base, DeclarativeBase
 
-Base = declarative_base()
+Base: DeclarativeBase = declarative_base()
 
 from app.models.charges import Charges
 from app.models.companies import Companies
