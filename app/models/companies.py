@@ -1,6 +1,6 @@
 from sqlalchemy import (Column, String, Integer, Float, Double, Boolean, Date, DateTime, Text, Numeric, ForeignKey)
 from sqlalchemy.orm import relationship
-from app.db.base import Base
+from app.db.sqlalchemy_base import Base
 from app.db.base_table import BaseTableMixin
 
 
