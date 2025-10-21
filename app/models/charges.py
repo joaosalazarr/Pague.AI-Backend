@@ -3,7 +3,7 @@ from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 from app.db.sqlalchemy_base import Base
 from app.db.base_table import BaseTableMixin
-from app.models import Debts
+
 
 class Charges(BaseTableMixin, Base):
     __tablename__ = 'charges'
@@ -13,4 +13,4 @@ class Charges(BaseTableMixin, Base):
     send_status = Column(Boolean, nullable=False)
     message_midst = Column(String, nullable=False)
 
-    debt = relationship('Debts', back_populates='charges')
+    debt = relationship('Debts')

@@ -3,7 +3,6 @@ from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 from app.db.sqlalchemy_base import Base
 from app.db.base_table import BaseTableMixin
-from app.models import Companies
 
 
 class Users(BaseTableMixin, Base):
@@ -15,4 +14,4 @@ class Users(BaseTableMixin, Base):
     password_hash = Column(String, nullable=False)
     role = Column(String(255))
 
-    company = relationship('Companies', back_populates='users')
+    company = relationship('Companies', back_populates='user')

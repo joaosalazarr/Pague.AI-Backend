@@ -3,7 +3,6 @@ from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 from app.db.sqlalchemy_base import Base
 from app.db.base_table import BaseTableMixin
-from app.models import Debtors, Companies
 
 
 class Debts(BaseTableMixin, Base):
@@ -14,5 +13,5 @@ class Debts(BaseTableMixin, Base):
     debt_value = Column(Float, nullable=False)
     debt_status = Column(Boolean, nullable=False, default=False)
 
-    debtor = relationship('Debtors', back_populates='debts')
-    company = relationship('Companies', back_populates='debts')
+    debtor = relationship('Debtors', back_populates='debt')
+    company = relationship('Companies')
