@@ -1,8 +1,8 @@
-from sqlalchemy import (Column, String, Integer, Float, Double, Boolean, Date, DateTime, Text, Numeric, ForeignKey)
-from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy import (Column, String)
 from sqlalchemy.orm import relationship
 from app.db.sqlalchemy_base import Base
 from app.db.base_table import BaseTableMixin
+from app.models import Debts
 
 
 class Debtors(BaseTableMixin, Base):

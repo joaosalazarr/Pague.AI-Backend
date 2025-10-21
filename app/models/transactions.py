@@ -1,8 +1,10 @@
-from sqlalchemy import (Column, String, Integer, Float, Double, Boolean, Date, DateTime, Text, Numeric, ForeignKey)
+from sqlalchemy import (Column, Float, Date, ForeignKey)
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 from app.db.sqlalchemy_base import Base
 from app.db.base_table import BaseTableMixin
+from app.models import Debts
+
 
 class Transactions(BaseTableMixin, Base):
     __tablename__ = 'transactions'
