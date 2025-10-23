@@ -9,9 +9,9 @@ class Debts(BaseTableMixin, Base):
     __tablename__ = 'debts'
 
     debtor_id = Column(UUID(as_uuid=True), ForeignKey('debtors.id'), nullable=False)
-    companies_id = Column(UUID(as_uuid=True), ForeignKey('companies.id'), nullable=False)
+    company_id = Column(UUID(as_uuid=True), ForeignKey('companies.id'), nullable=False)
     debt_value = Column(Float, nullable=False)
     debt_status = Column(Boolean, nullable=False, default=False)
 
-    debtor = relationship('Debtors', back_populates='debt')
+    debtor = relationship('Debtors', back_populates='debts')
     company = relationship('Companies')
