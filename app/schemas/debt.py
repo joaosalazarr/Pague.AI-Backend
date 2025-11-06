@@ -7,7 +7,6 @@ from uuid import UUID
 class Debt(BaseModel):
     debtor_id: UUID
     debt_value: Monetary
-    debt_status: bool
 
 
 class DebtCreate(Debt):
@@ -15,4 +14,4 @@ class DebtCreate(Debt):
 
 
 class DebtRead(BaseRead, Debt):
-    pass
+    debt_status: bool
