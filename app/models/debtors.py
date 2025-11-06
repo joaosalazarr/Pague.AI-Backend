@@ -9,5 +9,6 @@ class Debtors(BaseTableMixin, Base):
 
     debtor_name = Column(String(255), nullable=False)
     contact = Column(String(255), nullable=False)
+    debtor_cpf = Column(String(14), nullable=False)
 
     debts = relationship('Debts', back_populates='debtor')
