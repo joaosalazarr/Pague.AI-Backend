@@ -4,3 +4,5 @@ from decimal import Decimal
 
 ConstrainedString: type[str] = Annotated[str, StringConstraints(min_length=3, max_length=255)]
 Monetary: type[Decimal] = Annotated[Decimal, Field(gt=0, max_digits=10, decimal_places=2)]
+CPF: type[str] = Annotated[str, StringConstraints(min_length=11, max_length=14)]
+CNPJ: type[str] = Annotated[str, StringConstraints(min_length=14, max_length=18)]
