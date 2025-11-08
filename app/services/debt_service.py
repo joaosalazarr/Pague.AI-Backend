@@ -2,6 +2,7 @@ from sqlalchemy.orm import Session
 from app.models import Debts
 from app.schemas import DebtCreate, DebtRead, CompanyDebtRead
 from uuid import uuid4, UUID
+from fastapi import status, HTTPException
 
 
 def create_debt(db: Session, debt_input: DebtCreate) -> DebtRead:
@@ -40,3 +41,15 @@ def get_company_debts(db: Session, company_id: UUID) -> list[CompanyDebtRead]:
         )
 
     return result
+
+
+def delete_debt_by_id(db: Session, debt_id: UUID):
+    debt = db.query(Debts).filter(debt_id == Debts.id).first()
+
+    if not debt:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail='Dívida não encontrada')
+
+    db.delete(debt)
+    db.commit()
+
+    return DebtRead.model_validate(debt)
