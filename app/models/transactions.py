@@ -12,4 +12,4 @@ class Transactions(BaseTableMixin, Base):
     paid_amount = Column(Float, nullable=False)
     payment_date = Column(DateTime, nullable=False)
 
-    debt = relationship('Debts')
+    debt = relationship('Debts', back_populates='transactions')

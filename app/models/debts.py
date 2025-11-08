@@ -14,4 +14,6 @@ class Debts(BaseTableMixin, Base):
     debt_status = Column(Boolean, nullable=False, default=False)
 
     debtor = relationship('Debtors', back_populates='debts')
-    company = relationship('Companies')
+    company = relationship('Companies', back_populates='debts')
+    charges = relationship('Charges', back_populates='debt')
+    transactions = relationship('Transactions', back_populates='debt')

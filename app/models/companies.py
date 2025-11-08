@@ -12,3 +12,4 @@ class Companies(BaseTableMixin, Base):
     address = Column(Text)
 
     user = relationship('Users', back_populates='company')
+    debts = relationship('Debts', back_populates='company')

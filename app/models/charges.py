@@ -13,4 +13,4 @@ class Charges(BaseTableMixin, Base):
     send_status = Column(Boolean, nullable=False)
     message_midst = Column(String, nullable=False)
 
-    debt = relationship('Debts')
+    debt = relationship('Debts', back_populates='charges')
