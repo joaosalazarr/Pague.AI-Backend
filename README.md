@@ -56,6 +56,14 @@ pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
+## Criação e update do banco de dados
+
+Ainda dentro da pasta do projeto:
+
+```bash
+alembic upgrade head
+```
+
 ## Executar a API
 
 Execute a partir da raiz do repositório para que o `.env` seja carregado:
