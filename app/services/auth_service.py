@@ -13,6 +13,11 @@ def authenticate_user(db: Session, email: EmailStr, password: str) -> dict:
     if not verify_password(plain_password=password, hashed_password=user.password_hash):
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail='Senha incorreta')
 
-    token = create_acess_token({'sub': user.email, 'user_id': str(user.id)})
+    token = create_acess_token({
+        'sub': user.email,
+        'user_id': str(user.id),
+        'user_name': str(user.user_name),
+        'company_id': str(user.company_id)
+    })
 
     return {'acess_token': token, 'token_type': 'bearer'}
