@@ -7,9 +7,11 @@ from uuid import uuid4, UUID
 def create_debt(db: Session, debt_input: DebtCreate) -> DebtRead:
     new_debt = Debts(
         id=uuid4(),
-        debtor_id=debt_input.debtor_id,
         company_id=debt_input.company_id,
-        debt_value=debt_input.debt_value
+        debt_value=debt_input.debt_value,
+        debtor_name=debt_input.debtor_name,
+        debtor_contact=debt_input.debtor_contact,
+        debtor_cpf=debt_input.debtor_cpf
     )
 
     db.add(new_debt)
@@ -29,11 +31,11 @@ def get_company_debts(db: Session, company_id: UUID) -> list[CompanyDebtRead]:
                 id=debt.id,
                 debt_value=debt.debt_value,
                 debt_status=debt.debt_status,
-                debtor_id=debt.debtor_id,
                 created_at=debt.created_at,
                 company_name=debt.company.company_name,
-                debtor_name=debt.debtor.debtor_name,
-                debtor_cpf=debt.debtor.debtor_cpf
+                debtor_name=debt.debtor_name,
+                debtor_cpf=debt.debtor_cpf,
+                debtor_contact=debt.debtor_contact
             )
         )
 

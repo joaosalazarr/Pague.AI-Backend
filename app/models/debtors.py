@@ -11,4 +11,4 @@ class Debtors(BaseTableMixin, Base):
     contact = Column(String(255), nullable=False)
     debtor_cpf = Column(String(14), nullable=False)
 
-    debts = relationship('Debts', back_populates='debtor')
+    # debts = relationship('Debts', back_populates='debtor')

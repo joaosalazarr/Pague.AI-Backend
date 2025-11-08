@@ -6,8 +6,10 @@ from datetime import datetime
 
 
 class Debt(BaseModel):
-    debtor_id: UUID
     debt_value: Monetary
+    debtor_name: ConstrainedString
+    debtor_contact: ConstrainedString
+    debtor_cpf: CPF
 
 
 class DebtCreate(Debt):
@@ -21,5 +23,3 @@ class DebtRead(BaseRead, Debt):
 class CompanyDebtRead(DebtRead):
     created_at: datetime
     company_name: ConstrainedString
-    debtor_name: ConstrainedString
-    debtor_cpf: CPF
